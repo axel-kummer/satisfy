@@ -90,16 +90,18 @@ class SatisBuildRunner
      */
     protected function getCommandLine(?string $repositoryUrl = null): array
     {
-        $command = ['bin/satis', 'build'];
         $configuration = $this->manager->getConfig();
         $outputDir = $configuration->getOutputDir();
-        array_push($command, $this->satisFilename, $outputDir, '--skip-errors', '--no-ansi', '--verbose');
+
+        $command = ['bin/satis', 'build'];
         if (!empty($repositoryUrl)) {
-            $command[] = sprintf('--repository-url="%s"', $repositoryUrl);
+            $command[] = sprintf('--repository-url=%s', $repositoryUrl);
             // keep it while satis fails to build with one repo dependencies
             // https://github.com/composer/satis/issues/493
             $command[] = '--repository-strict';
         }
+
+        array_push($command, $this->satisFilename, $outputDir, '--skip-errors', '--no-ansi', '--verbose');
 
         return $command;
     }

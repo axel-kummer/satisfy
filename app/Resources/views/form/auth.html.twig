@@ -1,0 +1,28 @@
+{% block OAuthType_row %}
+    <div class="clearfix form-group">
+    {{ form_errors(form) }}
+    {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block OAuthType_widget %}
+    <div class="col-sm-3">{{ form_widget(form.type) }} {{ form_errors(form.type) }}</div>
+    <div class="col-sm-4">{{ form_widget(form.domain) }} {{ form_errors(form.domain) }}</div>
+    <div class="col-sm-4">{{ form_widget(form.token) }} {{ form_errors(form.token) }}</div>
+    <div class="col-sm-1 {{ form.parent.vars.id }}-collection-actions"></div>
+{% endblock %}
+
+
+{% block BasicAuthType_row %}
+    <div class="clearfix form-group">
+        {{ form_errors(form) }}
+        {{ form_widget(form) }}
+    </div>
+{% endblock %}
+
+{% block BasicAuthType_widget %}
+    <div class="col-sm-3">{{ form_widget(form.domain) }} {{ form_errors(form.domain) }}</div>
+    <div class="col-sm-4">{{ form_widget(form.username) }} {{ form_errors(form.username) }}</div>
+    <div class="col-sm-4">{{ form_widget(form.password) }} {{ form_errors(form.password) }}</div>
+    <div class="col-sm-1 {{ form.parent.vars.id }}-collection-actions"></div>
+{% endblock %}

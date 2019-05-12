@@ -1,11 +1,12 @@
 version: '2'
 services:
   satisfy:
+    image: aseemann/satisfy
     container_name: satisfy
-    build: ./docker
-    volumes:
-      - .:/var/www/satisfy
+    build:
+      context: docker/
     environment:
-      APP_PATH: /var/www/satisfy
-    ports:
-      - "80:80"
+      - APP_PATH=/var/www/satisfy
+      - COMPOSER_HOME=/var/www/satisfy/var/composer
+    expose:
+      - 80

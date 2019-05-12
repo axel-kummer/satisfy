@@ -26,7 +26,7 @@ class ProcessFactory
     public function create(array $command, int $timeout = null): Process
     {
         $exec = reset($command);
-        $command[key($command)] = $this->rootPath . '/' . $exec;
+        $command[key($command)] = $exec;
 
         return new Process($command, $this->rootPath, $this->getEnv(), null, $timeout);
     }

@@ -7,6 +7,7 @@ app/config/parameters.yml
 
 # Satis default configuration
 satis.json
+auth.json
 web/packages.json
 web/index.html
 web/include/*
@@ -52,3 +53,7 @@ nb-configuration.xml
 *.tmproj
 *.tmproject
 tmtags
+
+# Other
+/data/*
+docker-compose.override.yml

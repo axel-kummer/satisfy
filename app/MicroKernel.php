@@ -72,6 +72,9 @@ class MicroKernel extends Kernel
         $routes
             ->add('/admin/configuration', $controllerBase . 'ConfigurationController::indexAction', 'configuration')
             ->setMethods(['GET', 'POST']);
+        $routes
+            ->add('/admin/auth_editor', $controllerBase . 'AuthEditorController::indexAction', 'auth_editor')
+            ->setMethods(['GET', 'POST']);
         // satis interaction
         $routes
             ->add('/admin/satis/build', $controllerBase . 'SatisController::buildAction', 'satis_build')

@@ -39,6 +39,7 @@
         "symfony/twig-bundle": "^3.4",
         "symfony/yaml": "^3.4",
         "symfony/psr-http-message-bridge": "^1.1",
+        "symfony/var-dumper" : "^3.4",
         "doctrine/annotations": "~1.6",
         "doctrine/instantiator": "~1.1",
         "incenteev/composer-parameter-handler": "^2.1",

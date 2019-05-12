@@ -1,0 +1,17 @@
+tests/
+web/packages.json
+web/include/
+var/
+docker-compose.yml
+phpstan.neon.dist
+phpunit.xml.dist
+.php_cs.dist
+.travis.yml
+.gitignore
+.git
+satis.json
+auth.json
+ide-twig.json
+README.md
+LICENSE
+app/config/parameters.yml

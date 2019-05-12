@@ -96,3 +96,10 @@ services:
     public: true
     arguments:
       $secret: "%gitlab.secret%"
+
+  Playbloom\Satisfy\Controller\AuthEditorController:
+    autowire: true
+    public: true
+    arguments:
+      $appPath: "%kernel.project_dir%"
+      $composerHome: "%composer.home%"
