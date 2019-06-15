@@ -1,5 +1,7 @@
 FROM php:7.2-apache
 
+ARG GIT_BRANCH=master
+
 RUN apt-get update -q \
     && apt-get install -qy git cron supervisor wget zip unzip\
     && apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/* \
@@ -18,7 +20,7 @@ RUN composer global require hirak/prestissimo
 
 
 RUN cd /var/www/ \
-    && git clone -b master https://github.com/axel-kummer/satisfy.git \
+    && git clone -b ${GIT_BRANCH} https://github.com/axel-kummer/satisfy.git \
     && cd satisfy \
     && composer install --prefer-dist --no-ansi --no-interaction
 

@@ -1,12 +1,15 @@
-version: '2'
+version: '3.5'
+volumes:
+  ssh:
 services:
   satisfy:
     image: aseemann/satisfy
-    container_name: satisfy
-    build:
-      context: docker/
     environment:
       - APP_PATH=/var/www/satisfy
-      - COMPOSER_HOME=/var/www/satisfy/var/composer
+    volumes:
+      - ./data/parameters.yml:/var/www/satisfy/app/config/parameters.yml
+      - ./data/satis.json:/var/www/satisfy/app/satis.json
+      - ssh:/var/www/.ssh
+      - ./data/auth.json:/var/www/satisfy/var/composer/auth.json
     expose:
       - 80

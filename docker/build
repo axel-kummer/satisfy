@@ -1,0 +1,10 @@
+#!/usr/bin/env bash
+
+source_dir=$( dirname "${BASH_SOURCE[0]}" )
+old_dir=$(PWD)
+cd ${source_dir}
+source "lib/lib.sh"
+
+docker-compose -f ../docker-compose.yml -f ../docker-compose.development.yml build --no-cache
+
+cd ${old_dir}

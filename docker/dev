@@ -1,0 +1,31 @@
+#!/usr/bin/env bash
+
+source_dir=$( dirname "${BASH_SOURCE[0]}" )
+old_dir=$(PWD)
+cd ${source_dir}
+source "lib/lib.sh"
+
+
+case "$1" in
+    "up")
+        command="up -d" ;;
+    "up-build")
+        command="up -d --build" ;;
+    "down")
+        command="down" ;;
+    "down-volumes")
+        command="down -v" ;;
+    "status")
+        command="ps" ;;
+    "logs")
+        command="logs -f --tail=1000" ;;
+    *)
+        echo "Please pass a valid command"
+        echo "Commands are up,up-build,down,down-volumes,status,logs"
+        exit 1
+        ;;
+esac
+
+docker-compose -f ../docker-compose.yml -f ../docker-compose.development.yml -f ../docker-compose.override.yml ${command}
+
+cd ${old_dir}

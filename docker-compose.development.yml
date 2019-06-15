@@ -1,0 +1,14 @@
+version: '3.5'
+services:
+  satisfy:
+    image: aseemann/satisfy:${GIT_BRANCH}
+    container_name: satisfy
+    build:
+      context: docker/
+      args:
+        - GIT_BRANCH=${GIT_BRANCH}
+    environment:
+      - APP_PATH=/var/www/satisfy
+      - COMPOSER_HOME=/var/www/satisfy/var/composer
+    volumes:
+      - ./:/var/www/satisfy
